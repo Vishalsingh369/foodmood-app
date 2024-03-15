@@ -1,3 +1,41 @@
-#heading{
-    color:red;
+.header {
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid black;
+}
+.nav-items > ul {
+  display: flex;
+  list-style-type: none;
+  font-size: 18px;
+}
+.nav-items {
+  padding: 0px 20px;
+}
+.nav-items > ul > li {
+  padding: 10px;
+  margin: 10px;
+}
+.logo {
+  width: 100px;
+}
+
+.res-card{
+    padding: 5px;
+    border: 1px solid black;
+    width: 250px;
+    height: 250px;
+}
+
+.body{
+    margin-top: 20px;
+    padding: 10px;
+    border: 1px solid black;
+}
+
+.search{
+    padding: 10px;
+}
+.res-img{
+    width: 100%;
+    
 }
