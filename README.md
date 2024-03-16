@@ -18,3 +18,11 @@
 - HTTPs
 - Tree Shaking - remove unused code
 - Different dev and prod bundles
+
+
+  React Features   (point to remember)
+
+- config driven UI
+
+- resData?.info   =>  this is optional chaining
+- always use key={id} pair while iterating over the loop (map,reduce,filter  or  loop)  or else use index to iterate over the loop

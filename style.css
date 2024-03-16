@@ -19,23 +19,30 @@
   width: 100px;
 }
 
-.res-card{
-    padding: 5px;
-    border: 1px solid black;
-    width: 250px;
-    height: 250px;
+.res-card {
+  padding: 2px;
+  margin: 2px;
+  width: 250px;
+  /* height: 380px; */
+}
+.res-container {
+  display: flex;
+  /* margin: 5px; */
+  flex-wrap: wrap;
+}
+.res-card:hover {
+  border: 1px solid black;
+  cursor: pointer;
+}
+.body {
+  margin-top: 20px;
+  padding: 10px;
+  border: 1px solid black;
 }
 
-.body{
-    margin-top: 20px;
-    padding: 10px;
-    border: 1px solid black;
+.search {
+  padding: 10px;
 }
-
-.search{
-    padding: 10px;
-}
-.res-img{
-    width: 100%;
-    
+.res-img {
+  width: 100%;
 }
