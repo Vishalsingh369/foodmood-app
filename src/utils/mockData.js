@@ -1321,5 +1321,4 @@ const ResList = [
       },
     },
   ];
-
-  export default ResList;
+export default ResList;

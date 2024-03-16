@@ -1,10 +1,11 @@
+import  {LOGO_URL} from "../utils/constants"   //  named import is done like this
 
 const Header = () => {
     return (
       <div className="header">
         <div className="logo container">
           <img
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSdrQ7Ly9pqZ6F06bzC5H8hu1Bl7scJF-1IGw&usqp=CAU"
+            src={LOGO_URL}
             className="logo"
           />
         </div>
