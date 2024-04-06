@@ -2,6 +2,7 @@ import ResList from "../utils/mockData";
 import { useEffect, useState } from "react";
 import ResCard from "./ResCard";
 import Shimmer from "./Shimmer";
+import { Link } from "react-router-dom";
 
 const Body = () => {
   const [listOfRestaurants, setListOfRestaurants] = useState([]);
@@ -22,7 +23,6 @@ const Body = () => {
     setListOfRestaurants(
       // Optional Chaining
       json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
-     
     );
     //  console.log(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
     setfilteredRestaurant(
@@ -52,7 +52,7 @@ const Body = () => {
           <button
             onClick={() => {
               // console.log(searchText);
-              const filteredRestaurant = listOfRestaurants.filter((res) => 
+              const filteredRestaurant = listOfRestaurants.filter((res) =>
                 res.info.name.toLowerCase().includes(searchText.toLowerCase())
               );
               setfilteredRestaurant(filteredRestaurant);
@@ -75,7 +75,12 @@ const Body = () => {
       </div>
       <div className="res-container">
         {filteredRestaurant.map((restaurant) => (
-          <ResCard key={restaurant.info.id} resData={restaurant} />
+          <Link
+            key={restaurant.info.id}
+            to={"/restaurants/" + restaurant.info.id}
+          >
+            <ResCard resData={restaurant} />
+          </Link>
         ))}
       </div>
     </div>

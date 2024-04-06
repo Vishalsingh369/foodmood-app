@@ -1,4 +1,6 @@
-# Namaste React Series 🚀
+# foodmood Dynamic UI Application majorly Based on React tailwind and many other tools  🚀
+
+
 
 # Parcel
 - Dev-build
@@ -20,14 +22,8 @@
 - Different dev and prod bundles
 
 
-  React Features   (point to remember)
+ # React Features   (point to remember)
 
-- config driven UI
+ #  Conflict Driven UI :- 
+conflict driven UI is a software development approach where the client side code define and render user interface based on the data coming from backend
 
-- resData?.info   =>  this is optional chaining
-- always use key={id} pair while iterating over the loop (map,reduce,filter  or  loop)  or else use index to iterate over the loop
-
-- two types of export :-
-
-1. named export
-2. default export

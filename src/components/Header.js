@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { LOGO_URL } from "../utils/constants"; //  named import is done like this
+import { Link } from "react-router-dom";
 
 const Header = () => {
   const [btnName, setbtnName] = useState("Login");
@@ -7,10 +8,10 @@ const Header = () => {
   // if no dependency array => useffect called on every render
   // if dependency array is empty => useEffect called on initial render
   // if dependency array is [btnName] => called everyTime btnName is updated
-  
-  useEffect(()=>{
-console.log("useEffect called");
-  },[])
+
+  useEffect(() => {
+    // console.log("useEffect called");
+  }, []);
   return (
     <div className="header">
       <div className="logo container">
@@ -18,9 +19,15 @@ console.log("useEffect called");
       </div>
       <div className="nav-items">
         <ul>
-          <li>Home</li>
-          <li>Contact Us</li>
-          <li>About Us</li>
+          <li>
+            <Link to="/">Home</Link>
+          </li>
+          <li>
+            <Link to="/contact">Contact Us</Link>
+          </li>
+          <li>
+            <Link to="/about">About Us</Link>
+          </li>
           <li>Cart</li>
           <button
             className="login"

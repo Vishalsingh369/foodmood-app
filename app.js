@@ -4,6 +4,11 @@ import React, { Component } from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./src/components/Header";
 import Body from "./src/components/Body";
+import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
+import About from "./src/components/AboutUs";
+import Contact from "./src/components/Contact";
+import RestaurantMenu from "./src/components/RestaurantMenu";
+import Error from "./src/components/Error";
 // const heading=React.createElement("h1",{id: "heading"},"Namaste React");
 
 // Babel is converting JSX code to react code
@@ -69,17 +74,41 @@ import Body from "./src/components/Body";
 
 // // react components rendered like this
 
-
-
-
 const Applayout = () => {
   return (
     <div className="app">
       <Header />
-      <Body />
+      <Outlet />
     </div>
   );
 };
 
+const appRouter = createBrowserRouter([
+  {
+    path: "/",
+    element: <Applayout />,
+    children: [
+      {
+        path: "/",
+        element: <Body />,
+      },
+      {
+        path: "/about",
+        element: <About />,
+      },
+      {
+        path: "/contact",
+        element: <Contact />,
+      },
+      {
+        path: "/restaurants/:resId", // : means dynamic routing/ dynamic api calls
+        element: <RestaurantMenu />,
+      },
+    ],
+    errorElement: <Error />,
+  },
+]);
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<Applayout />);
+
+root.render(<RouterProvider router={appRouter} />);
