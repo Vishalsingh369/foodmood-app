@@ -1,4 +1,5 @@
-# foodmood Dynamic UI Application majorly Based on React tailwind and many other tools  🚀
+# foodmood Dynamic
+    UI Application majorly Based on React tailwind and many other tools  🚀
 
 
 
@@ -24,6 +25,6 @@
 
  # React Features   (point to remember)
 
- #  Conflict Driven UI :- 
-conflict driven UI is a software development approach where the client side code define and render user interface based on the data coming from backend
+ #  Conflict Driven UI 
+    Conflict Driven UI is a software development approach where the client side code define and render user interface based on the data coming from backend
 
