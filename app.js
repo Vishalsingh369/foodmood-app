@@ -1,14 +1,17 @@
 // const heading = React.createElement("h1", {id: "heading",xyz:"abc"}, "Hello world from react!");
-import React, { Component } from "react";
+import React, { Component, lazy, Suspense } from "react";
 // import { render } from "react-dom";
 import ReactDOM from "react-dom/client";
 import Header from "./src/components/Header";
 import Body from "./src/components/Body";
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
-import About from "./src/components/AboutUs";
+// import About from "./src/components/AboutUs";
 import Contact from "./src/components/Contact";
 import RestaurantMenu from "./src/components/RestaurantMenu";
 import Error from "./src/components/Error";
+import Shimmer from "./src/components/Shimmer";
+
+// import Grocery from "./src/components/Grocery";
 // const heading=React.createElement("h1",{id: "heading"},"Namaste React");
 
 // Babel is converting JSX code to react code
@@ -74,12 +77,15 @@ import Error from "./src/components/Error";
 
 // // react components rendered like this
 
+const Grocery = lazy(() => import("./src/components/Grocery"));
+
+const About =lazy(() => import("./src/components/AboutUs"))
+
 const Applayout = () => {
   return (
     <div className="app">
       <Header />
       <Outlet />
-      
     </div>
   );
 };
@@ -95,7 +101,7 @@ const appRouter = createBrowserRouter([
       },
       {
         path: "/about",
-        element: <About />,
+        element: <Suspense fallback={<Shimmer/>}><About /></Suspense>,
       },
       {
         path: "/contact",
@@ -104,6 +110,14 @@ const appRouter = createBrowserRouter([
       {
         path: "/restaurants/:resId", // : means dynamic routing/ dynamic api calls
         element: <RestaurantMenu />,
+      },
+      {
+        path: "/grocery", // : means dynamic routing/ dynamic api calls
+        element: (
+          <Suspense fallback={<Shimmer />}>
+            <Grocery />
+          </Suspense>
+        ),
       },
     ],
     errorElement: <Error />,

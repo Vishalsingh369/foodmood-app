@@ -9,10 +9,17 @@ class About extends Component {
 
   constructor(params) {
     super(params);
+
     // console.log("Parent constructor called");
   }
   // componentDidMount() {
-  //   console.log("Parent componentdid mount called");
+  //   this.timer=setInterval(() =>{
+  //         console.log("Namste Dev");
+  //   },1000);
+  // }
+  // componentWillUnmount(){
+  //   clearInterval(this.timer);
+  //   console.log("component will unmount called");
   // }
   render() {
     // console.log("Parent render called");

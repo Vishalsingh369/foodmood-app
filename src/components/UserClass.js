@@ -17,15 +17,15 @@ class UserClass extends React.Component {
     // console.log(props);
   }
 
-  async componentDidMount() {
-    // console.log(" Child componentDidMount called");
-    const data= await fetch("https://api.github.com/users/Vishalsingh369");
-    const json = await data.json();
-    this.setState({
-      userInfo:json,
-    })
-    console.log(json);
-  }
+  // async componentDidMount() {
+  //   // console.log(" Child componentDidMount called");
+  //   const data= await fetch("https://api.github.com/users/Vishalsingh369");
+  //   const json = await data.json();
+  //   this.setState({
+  //     userInfo:json,
+  //   })
+  //   // console.log(json);
+  // }
 
   render() {
     const{name,bio,avatar_url}=this.state.userInfo

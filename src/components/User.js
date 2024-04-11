@@ -3,16 +3,26 @@ import UserClass from "./UserClass";
 
 const User = (/* name */) => {
   useEffect(() => {
-    getuserInfo();
-  }, []);
-  const [name,setname]=useState("dummy")
+    // getuserInfo();
+    const timer = setInterval(() => {
+      console.log("Namste react op");
+    }, 1000);
+    console.log("useeffect called");
 
-  async function getuserInfo() {
-    const data = await fetch("https://api.github.com/users/Vishalsingh369");
-    const json = await data.json();
-    setname(json.name);
-    console.log(json);
-  }
+    return () => {
+      clearInterval(timer);
+      console.log("useeffect Return");
+    };
+  }, []);
+  const [name, setname] = useState("dummy");
+
+  // async function getuserInfo() {
+  //   const data = await fetch("https://api.github.com/users/Vishalsingh369");
+  //   const json = await data.json();
+  //   setname(json.name);
+  //   // console.log(json);
+  // }
+  console.log("render");
   // destructuring on the
   // let [count, setcount] = useState(0);
   //   const [count2] = useState(0);
