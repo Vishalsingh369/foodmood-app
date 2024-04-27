@@ -25,7 +25,7 @@ class About extends Component {
     // console.log("Parent render called");
     return (
       <div>
-        <h1>About Class component</h1>
+        <h1 className="bg-red-600 rounded-lg">About Class component</h1>
         <h2>Namaste React</h2>
         <UserClass/>
         <User/>

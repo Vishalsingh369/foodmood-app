@@ -12,4 +12,13 @@
 1. Chunking  // Dynamic Binding  // Code Splitting  //  Lazy Loading  //  Ondemand Loading
 
 
-Lazy and Suspense
+ Use of Lazy and Suspense component
+
+ # Methods to add styling 
+ 1. SASS
+ 2. SCSS
+ 3. Styled component
+ 4. Material UI
+ 5. Bootstrap
+ 6. Chakra UI
+ 7. Ant Design
