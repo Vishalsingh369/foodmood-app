@@ -1,8 +1,10 @@
-import { Component } from "react";
+import { Component, useContext } from "react";
 import { CDN_URL } from "../utils/constants";
 // import ResList from "../utils/mockData";
+import UserContext from "../utils/UserContext";
 
 const ResCard = (props) => {
+  const { loggedInUser } = useContext(UserContext);
   // console.log(props);
   const { resData } = props; // destructuring on the fly
   const { name, cuisines, avgRating, costForTwo, sla, cloudinaryImageId } =
@@ -24,13 +26,12 @@ const ResCard = (props) => {
       <h4>{avgRating} star</h4>
       <h4>{costForTwo} </h4>
       <h4>{sla.deliveryTime} minutes</h4>
+      <h4>{loggedInUser}</h4>
     </div>
   );
 };
 
-
 // Higher Order Component
-
 
 export const WithPromotedLabel = (ResCard) => {
   return (props) => {

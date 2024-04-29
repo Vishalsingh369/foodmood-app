@@ -1,9 +1,10 @@
 import ResList from "../utils/mockData";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import ResCard, { WithPromotedLabel } from "./ResCard";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
+import UserContext from "../utils/UserContext";
 
 const Body = () => {
   const [listOfRestaurants, setListOfRestaurants] = useState([]);
@@ -39,14 +40,15 @@ const Body = () => {
   // }
 
   const onlinestatus = useOnlineStatus();
-  if (onlinestatus === false) {
+  if (onlinestatus === false)
     return (
       <div>
         <h1>Looks like you are offline!!</h1>
         <h2>Please check your Internet Connection 😥</h2>
       </div>
     );
-  }
+
+  const { loggedInUser, setuserName } = useContext(UserContext);
 
   return listOfRestaurants.length === 0 ? (
     <Shimmer />
@@ -87,6 +89,17 @@ const Body = () => {
           >
             Top Rated Restaurants
           </button>
+        </div>
+
+        <div className="m-4 p-4 flex items-center">
+          <label>Username : </label>
+          <input
+            className="border border-black m-2 p-2 border-solid"
+            value={loggedInUser}
+            onChange={(e) => 
+              setuserName(e.target.value)
+            }
+          />
         </div>
       </div>
       <div className="flex flex-wrap rounded-lg">

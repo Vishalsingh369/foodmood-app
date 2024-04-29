@@ -1,5 +1,5 @@
 // const heading = React.createElement("h1", {id: "heading",xyz:"abc"}, "Hello world from react!");
-import React, { Component, lazy, Suspense } from "react";
+import React, { Component, lazy, Suspense, useEffect, useState } from "react";
 // import { render } from "react-dom";
 import ReactDOM from "react-dom/client";
 import Header from "./src/components/Header";
@@ -10,6 +10,7 @@ import Contact from "./src/components/Contact";
 import RestaurantMenu from "./src/components/RestaurantMenu";
 import Error from "./src/components/Error";
 import Shimmer from "./src/components/Shimmer";
+import UserContext from "/src/utils/UserContext";
 
 // import Grocery from "./src/components/Grocery";
 // const heading=React.createElement("h1",{id: "heading"},"Namaste React");
@@ -79,12 +80,24 @@ import Shimmer from "./src/components/Shimmer";
 
 const Grocery = lazy(() => import("./src/components/Grocery"));
 
-const About =lazy(() => import("./src/components/AboutUs"))
+const About = lazy(() => import("./src/components/AboutUs"));
 
 const Applayout = () => {
+  const [userName, setuserName] = useState();
+
+  // authentication
+  useEffect(() => {
+    const data = {
+      name: "Vishal Thakur",
+    };
+    setuserName(data.name);
+  }, []);
+
   return (
     <div className="app">
-      <Header />
+      <UserContext.Provider value={{ loggedInUser: userName, setuserName }}>
+        <Header />
+      </UserContext.Provider>
       <Outlet />
     </div>
   );
@@ -101,7 +114,11 @@ const appRouter = createBrowserRouter([
       },
       {
         path: "/about",
-        element: <Suspense fallback={<Shimmer/>}><About /></Suspense>,
+        element: (
+          <Suspense fallback={<Shimmer />}>
+            <About />
+          </Suspense>
+        ),
       },
       {
         path: "/contact",
