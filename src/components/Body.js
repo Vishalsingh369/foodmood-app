@@ -23,7 +23,7 @@ const Body = () => {
       "https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.65420&lng=77.23730&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
     );
     const json = await data.json();
-    console.log(json);
+    // console.log(json);
     setListOfRestaurants(
       // Optional Chaining
       json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
@@ -49,11 +49,12 @@ const Body = () => {
     );
 
   const { loggedInUser, setuserName } = useContext(UserContext);
+  
 
   return listOfRestaurants.length === 0 ? (
     <Shimmer />
   ) : (
-    <div className="body">
+    <div className="">
       <div className="flex justify-center">
         <div className="p-4 m-4">
           <input

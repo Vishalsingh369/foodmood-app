@@ -22,3 +22,24 @@
  5. Bootstrap
  6. Chakra UI
  7. Ant Design
+
+ # Types of testing  (developer)
+ - Unit Testing
+ - Integration Testing
+ - End to End Testing - e2e Testing
+
+
+ # Setting up Testing in our app
+ - Install React testing library
+ - Install jest
+ - Install babel dependencies
+ - Configure Babel
+ - Configure Parcel config file to disable default babel transpilation
+ - Jest configuration  (npx jest --init)
+ - Install jsdom library   (for version greater than 28)
+ - Install @babel/preset-react to make jsx enable to work in test cases
+ - Configure babel.config.js file
+ - Install @testing-library/jest-dom
+
+
+ note : __ (filename)__  is known as dunder method

@@ -11,6 +11,9 @@ import RestaurantMenu from "./src/components/RestaurantMenu";
 import Error from "./src/components/Error";
 import Shimmer from "./src/components/Shimmer";
 import UserContext from "/src/utils/UserContext";
+import { Provider } from "react-redux";
+import appStore from "./src/utils/appStore";
+import Cart from "./src/components/Cart";
 
 // import Grocery from "./src/components/Grocery";
 // const heading=React.createElement("h1",{id: "heading"},"Namaste React");
@@ -94,12 +97,14 @@ const Applayout = () => {
   }, []);
 
   return (
-    <div className="app">
+    <Provider store={appStore}>
       <UserContext.Provider value={{ loggedInUser: userName, setuserName }}>
-        <Header />
+        <div className="app">
+          <Header />
+          <Outlet />
+        </div>
       </UserContext.Provider>
-      <Outlet />
-    </div>
+    </Provider>
   );
 };
 
@@ -135,6 +140,10 @@ const appRouter = createBrowserRouter([
             <Grocery />
           </Suspense>
         ),
+      },
+      {
+        path: "/cart",
+        element: <Cart />,
       },
     ],
     errorElement: <Error />,
