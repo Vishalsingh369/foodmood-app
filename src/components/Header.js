@@ -5,6 +5,16 @@ import useOnlineStatus from "../utils/useOnlineStatus";
 import UserContext from "../utils/UserContext";
 import { useSelector } from "react-redux";
 import img from "../utils/foodmood-high-resolution-logo-transparent.png";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faCartShopping,
+  faRightToBracket,
+  faHouse,
+  faUsers,
+  faEnvelope,
+  faUser,
+  faBasketShopping,
+} from "@fortawesome/free-solid-svg-icons";
 
 const Header = () => {
   const { loggedInUser } = useContext(UserContext);
@@ -23,45 +33,61 @@ const Header = () => {
   }, []);
   const onlinestatus = useOnlineStatus();
   return (
-    <div className="flex justify-between bg-gray-400 shadow-lg sm:bg-green-50 lg:bg-yellow-50">
-      <div className="logo container">
-
-     <Link to="/"> <img src={img} className="w-40 m-6 p-4" /></Link>
-
+    <div className="flex justify-between bg-gray-400 shadow-lg sm:bg-green-50 lg:bg-yellow-50 h-36">
+      <div className="mb-20">
+        <Link to="/">
+          {" "}
+          <img src={img} className="w-40 p-8" />
+        </Link>
 
         {/* <img src={LOGO_URL} className="w-56" /> */}
-
-
       </div>
       <div className="flex items-center">
         <ul className="flex p-8 m-8">
-          <li className="px-4 text-nowrap font-medium text-2xl">
+          <li className="px-4 text-nowrap font-medium text-[18px]">
             Online Status : {onlinestatus ? "✅" : "🔴"}
           </li>
-          <li className="px-4 font-medium text-2xl">
-            <Link to="/">Home</Link>
+          <li className="px-4 font-medium text-[18px] text-nowrap">
+            <Link to="/">
+              <FontAwesomeIcon icon={faHouse} /> Home
+            </Link>
           </li>
-          <li className="px-4 text-center text-nowrap font-medium text-2xl">
-            <Link to="/contact">Contact Us</Link>
+          <li className="px-4 text-center text-nowrap font-medium text-[18px]">
+            <Link to="/contact">
+              <FontAwesomeIcon icon={faEnvelope} /> Contact Us
+            </Link>
           </li>
-          <li className="px-4 font-medium text-center text-nowrap text-2xl">
-            <Link to="/about">About Us</Link>
+          <li className="px-4 font-medium text-center text-nowrap text-[18px]">
+            <Link to="/about">
+            <FontAwesomeIcon icon={faUsers} />{" "} About Us
+            </Link>
           </li>
-          <li className="px-4 font-medium text-2xl">
-            <Link to="/grocery">Grocery</Link>
+          <li className="px-4 font-medium text-nowrap text-[18px]">
+            <Link to="/grocery">
+              <FontAwesomeIcon icon={faBasketShopping} /> Grocery
+            </Link>
           </li>
-          <li className="px-4 font-bold text-2xl text-nowrap">
-            <Link to="/cart">Cart ({cartItems} Items)</Link>
+          <li className="px-4 font-bold text-[18px] text-nowrap">
+            <Link to="/cart">
+              <FontAwesomeIcon icon={faCartShopping} /> Cart ({cartItems} Items)
+            </Link>
           </li>
+          <FontAwesomeIcon
+            icon={faRightToBracket}
+            className="items-center mt-2 cursor-pointer"
+          />
           <button
-            className="mb-16 font-bold text-2xl "
+            className="px-[9px] font-bold text-[18px] "
             onClick={() => {
               btnName === "Login" ? setbtnName("Logout") : setbtnName("Login");
             }}
           >
+            {" "}
             {btnName}
+           
           </button>
-          <li className="px-4 font-extrabold text-nowrap text-2xl">
+          <FontAwesomeIcon icon={faUser} className="my-[6px]"/>{" "}
+          <li className="px-2 font-extrabold text-nowrap text-[18px]">
             {loggedInUser}
           </li>
         </ul>
