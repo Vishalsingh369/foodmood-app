@@ -1,6 +1,6 @@
 
 # Optional chaining  =>  
-it is js feature that allow devloper to access objects property or call afunction without explicitly checking if the object or function exists or not
+it is js feature that allow developer to access objects property or call a function without explicitly checking if the object or function exists or not
 
 - resData?.info   =>  this is optional chaining
 - always use key={id} pair while iterating over the loop (map,reduce,filter  or  loop)  or else use index to iterate over the loop

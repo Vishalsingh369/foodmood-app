@@ -25,6 +25,6 @@
 
  # React Features   (point to remember)
 
- #  Conflict Driven UI 
-  Conflict Driven UI is a software development approach where the client side code define and render user interface based on the data coming from backend
+ #  Config Driven UI 
+  Config Driven UI is a software development approach where the client side code define and render user interface based on the data coming from backend
 
